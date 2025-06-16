@@ -1,0 +1,46 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.container__image{
+    max-width: 282px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.container__title{
+    position: relative;
+    bottom: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 20px;
+    margin: 0;
+    background-color: white;
+    color: black;
+    width: 242px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.container__heart{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 16px;
+}
+
+@media screen and (max-width : 320px) {
+    .container{
+        display: block;
+        margin: 5px;
+    }
+}
