@@ -38,6 +38,10 @@
     right: 16px;
 }
 
+.container__heart:hover{
+    opacity: .5;
+}
+
 @media screen and (max-width : 320px) {
     .container{
         display: block;

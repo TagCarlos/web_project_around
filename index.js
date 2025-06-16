@@ -39,6 +39,8 @@ function handleProfileFormSubmit(evt) {
     let jobInput = document.querySelector("#about");
     let nameDisplay = document.querySelector(".header__name"); 
     let jobDisplay = document.querySelector(".header__activity");
+    console.log(jobInput)
+    console.log(jobDisplay)
 
     nameDisplay.textContent = nameInput.value;
     jobDisplay.textContent = jobInput.value;
