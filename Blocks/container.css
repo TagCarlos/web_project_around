@@ -1,7 +1,7 @@
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(3, 32%);
+    grid-template-rows: repeat(2, 48%);
     gap: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -9,10 +9,11 @@
 }
 
 .container__image{
-    max-width: 282px;
+    width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 15px;
+    height: 80%;
 }
 
 .container__title{
@@ -24,7 +25,6 @@
     margin: 0;
     background-color: white;
     color: black;
-    width: 242px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -42,6 +42,13 @@
     opacity: .5;
 }
 
+@media screen and (max-width: 768px) {
+    .container{
+        grid-template-columns: repeat(2, 47%);
+        grid-template-rows: repeat(3, 32%);
+        justify-content: center;
+    }
+}
 @media screen and (max-width : 320px) {
     .container{
         display: block;
