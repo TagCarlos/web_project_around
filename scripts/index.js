@@ -51,3 +51,51 @@ function handleProfileFormSubmit(evt) {
 // Conecta el manipulador (handler) al formulario:
 // se observará el evento de entrega
 formElement.addEventListener('submit', handleProfileFormSubmit);
+
+// crea tarjetas
+const templateCard = document.querySelector(".template__card")
+const cardsList = document.querySelector(".container");
+const initialCards = [
+  {
+    name: "Ciudad de México",
+    link: "https://images.unsplash.com/photo-1547686669-9a8cb1a22d91?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Guadalajara",
+    link: "https://images.unsplash.com/photo-1561788655-79bf50b6b174?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Monterrey",
+    link: "https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Yucatán",
+    link: "https://images.unsplash.com/photo-1518638150340-f706e86654de?q=80&w=867&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Chiapas",
+    link: "https://images.unsplash.com/photo-1597177549158-a92ded9f5436?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Chihuahua",
+    link: "https://images.unsplash.com/photo-1691560284809-15b2a260d881?q=80&w=892&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+];
+
+initialCards.forEach(function(item) {
+   createCard(item.name, item.link);
+});
+
+function createCard(name, link){
+   const clonedCard = templateCard.content.querySelector(".container__cards").cloneNode(true);
+   const cardTitle = clonedCard.querySelector(".container__title");
+   const cardImage = clonedCard.querySelector(".container__image");
+   const cardLikeButton = clonedCard.querySelector(".container__heart");
+
+   cardTitle.textContent = name;
+   cardImage.src = link;
+   cardsList.append(clonedCard);
+   cardLikeButton.addEventListener("click", function() {
+    cardLikeButton.classList.toggle("") // <--- aqui dentro se debe crear la clase con el nuevo diseño "osea colocar la imagen con el corazon relleno"
+   })
+}
