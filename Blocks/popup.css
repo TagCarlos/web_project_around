@@ -19,12 +19,14 @@
     color: black;
     padding: 20px;
     border-radius: 5px;
+    width: 430px;
+    height: 330px;
 }
 
 .popup__close{
     display: grid;
     position: relative;
-    left: 300px;
+    left: 430px;
     bottom: 80px;
     background-color: transparent;
     border: none;

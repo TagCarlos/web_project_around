@@ -1,7 +1,7 @@
 let openButton = document.querySelector("#edit");
 let popupForm = document.querySelector(".popup");
-let closeButton = document.querySelector("#save");
-let closeButton2 = document.querySelector(".popup__close");
+let closeButton = popupForm.querySelector("#save");
+let closeButton2 = popupForm.querySelector(".popup__close");
 
 //abre formulario
 function abrirFormulario() {
@@ -84,18 +84,45 @@ const initialCards = [
 
 initialCards.forEach(function(item) {
    createCard(item.name, item.link);
-});
+}); 
 
 function createCard(name, link){
    const clonedCard = templateCard.content.querySelector(".container__cards").cloneNode(true);
    const cardTitle = clonedCard.querySelector(".container__title");
    const cardImage = clonedCard.querySelector(".container__image");
    const cardLikeButton = clonedCard.querySelector(".container__heart");
-
+console.log(clonedCard);
    cardTitle.textContent = name;
    cardImage.src = link;
    cardsList.append(clonedCard);
    cardLikeButton.addEventListener("click", function() {
-    cardLikeButton.classList.toggle("") // <--- aqui dentro se debe crear la clase con el nuevo diseño "osea colocar la imagen con el corazon relleno"
+    cardLikeButton.classList.toggle("container__heart_active") // <--- aqui dentro se debe crear la clase con el nuevo diseño "osea colocar la imagen con el corazon relleno"
    })
 }
+
+//crea formulario para añadir tarjeta
+let openButton2 = document.querySelector("#add-image");
+let popupForm2 = document.querySelector("#popup");
+let closeButtonImage = popupForm2.querySelector("#save");
+let closeButtonImage2 = popupForm2.querySelector(".popup__close");
+
+function abrirFormulario2() {
+  popupForm2.classList.add("popup_opened");
+}
+function cerrarFormulario2() {
+   popupForm2.classList.remove("popup_opened");
+}
+
+openButton2.addEventListener("click", abrirFormulario2);
+closeButtonImage.addEventListener("click", cerrarFormulario2);
+closeButtonImage2.addEventListener("click", cerrarFormulario2);
+
+closeButtonImage.addEventListener("submit", function (evt) {
+   evt.preventDefault();
+   let title = document.querySelector("#title").value;
+   let image = document.querySelector("#image").value;
+
+  title.textContent = nombre;
+  image.textContent = mensaje;
+   cerrarFormulario2();
+});
