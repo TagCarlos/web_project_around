@@ -15,6 +15,7 @@
 }
 
 .popup__form{
+    position: relative;
     background-color: white;
     color: black;
     padding: 20px;
@@ -24,10 +25,9 @@
 }
 
 .popup__close{
-    display: grid;
-    position: relative;
-    left: 430px;
-    bottom: 80px;
+    position: absolute;
+    right: -30px;
+    top: -50px;
     background-color: transparent;
     border: none;
     font-size: 50px;
@@ -39,8 +39,7 @@
 }
 
 .popup__title{
-    position: relative;
-    bottom: 80px;
+    
     padding: 10px 0 0 5px;
 }
 
@@ -49,6 +48,7 @@
     border: none;
     border-bottom: 1px solid rgba(84, 84, 84, 1);
     margin: 15px;
+    width: 350px;
 }
 
 .popup__about{
@@ -56,6 +56,7 @@
     border: none;
     border-bottom: 1px solid rgba(84, 84, 84, 1);
     margin: 15px;
+    width: 350px;
 }
 
 .popup__save{
@@ -74,6 +75,25 @@
     opacity: .5;
 }
 
+.popup__close_image{
+    position: absolute;
+    right: -35px;
+    top: -50px;
+    background-color: transparent;
+    border: none;
+    font-size: 50px;
+    color: white;
+}
+
+.popup__image{
+    max-width: 75vw;
+    max-height: 75vh;
+}
+
+.popup__title_image{
+    font-size: 30px;
+    font-weight: bold;
+}
 
 @media screen and (max-width: 320px) {
     .popup__form{

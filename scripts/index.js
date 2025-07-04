@@ -39,8 +39,7 @@ function handleProfileFormSubmit(evt) {
     let jobInput = document.querySelector("#about");
     let nameDisplay = document.querySelector(".header__name"); 
     let jobDisplay = document.querySelector(".header__activity");
-    console.log(jobInput)
-    console.log(jobDisplay)
+    
 
     nameDisplay.textContent = nameInput.value;
     jobDisplay.textContent = jobInput.value;
@@ -91,14 +90,33 @@ function createCard(name, link){
    const cardTitle = clonedCard.querySelector(".container__title");
    const cardImage = clonedCard.querySelector(".container__image");
    const cardLikeButton = clonedCard.querySelector(".container__heart");
-console.log(clonedCard);
+   const deleteButton = clonedCard.querySelector(".container__trash");
+   
    cardTitle.textContent = name;
    cardImage.src = link;
-   cardsList.append(clonedCard);
+   cardsList.prepend(clonedCard);
    cardLikeButton.addEventListener("click", function() {
-    cardLikeButton.classList.toggle("container__heart_active") // <--- aqui dentro se debe crear la clase con el nuevo diseño "osea colocar la imagen con el corazon relleno"
+   cardLikeButton.classList.toggle("container__heart_active");
    })
-}
+   deleteButton.addEventListener("click", function(){
+    clonedCard.remove();
+   })
+   cardImage.addEventListener("click", function(){
+    const popupImage = document.querySelector("#popupImage");
+    const popupImageElement = document.querySelector(".popup__image");
+    const popupImageTitle = document.querySelector(".popup__title_image");
+    popupImage.classList.add("popup_opened");
+    popupImageElement.src = link;
+    popupImageTitle.textContent = name;
+   }) 
+   let closeFormImage = document.querySelector(".popup__close_image");
+   let popupForm3 = document.querySelector("#popupImage");
+   function closeFormImages() {
+    popupForm3.classList.remove("popup_opened");
+   }
+   closeFormImage.addEventListener("click", closeFormImages);
+   closeFormImages();
+   }
 
 //crea formulario para añadir tarjeta
 let openButton2 = document.querySelector("#add-image");
@@ -126,3 +144,22 @@ closeButtonImage.addEventListener("submit", function (evt) {
   image.textContent = mensaje;
    cerrarFormulario2();
 });
+
+// crea tarjeta personalizada
+let editImage = document.querySelector("#form-image");
+
+function handleAddCard(submit) {
+   
+    submit.preventDefault();
+    
+    let title = document.querySelector("#title");
+    let link = document.querySelector("#image");
+   
+    createCard(title.value, link.value);
+    }
+
+    editImage.addEventListener('submit', handleAddCard);
+
+
+
+

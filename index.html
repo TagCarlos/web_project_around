@@ -31,46 +31,6 @@
 <main> 
     <section class="container">
     
-   <!--  <div> 
-        <img class="container__image" src="https://images.unsplash.com/photo-1561788655-79bf50b6b174?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Guadalajara">
-        <h2 class="container__title">Guadalajara
-            <button class="container__heart">
-                <img src="./Images/Vector.svg" alt="corazon" >
-            </button> 
-        </h2>
-    </div>
-    <div> 
-        <img class="container__image" src="https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Monterrey">
-        <h2 class="container__title">Monterrey 
-            <button class="container__heart">
-                <img src="./Images/Vector.svg" alt="corazon" >
-            </button>  
-        </h2>
-    </div>
-    <div> 
-        <img class="container__image" src="https://images.unsplash.com/photo-1518638150340-f706e86654de?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Yucatan">
-        <h2 class="container__title">Yucatán
-           <button class="container__heart">
-                <img src="./Images/Vector.svg" alt="corazon" >
-            </button> 
-        </h2>
-    </div>
-    <div> 
-        <img class="container__image" src="https://images.pexels.com/photos/6942782/pexels-photo-6942782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chiapas">
-        <h2 class="container__title">Chiapas
-            <button class="container__heart">
-                <img src="./Images/Vector.svg" alt="corazon" >
-            </button> 
-        </h2>
-    </div>
-    <div> 
-        <img class="container__image" src="https://images.pexels.com/photos/17923076/pexels-photo-17923076/free-photo-of-amanecer-paisaje-naturaleza-cielo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chihuahua">
-        <h2 class="container__title">Chihuahua
-            <button class="container__heart">
-                <img src="./Images/Vector.svg" alt="corazon" class="container__heart container__heart_hover">
-            </button> 
-        </h2>
-    </div> -->
     </section>
 </main>
 <footer class="footer">© 2024 Around The MX</footer>
@@ -94,19 +54,26 @@
 
 <div class="popup" id="popup">
     <div class="popup__container">
-    <form id="form" class="popup__form">
-        <div class="header__form">
+    <form id="form-image" class="popup__form">
             <button class="popup__close" type="button" onclick="cerrarPopup()">×</button>
             <h2 class="popup__title">Nuevo lugar</h2>
-            <label for="title" class="edit-name"> </label>
             <input type="text" id="title" name="title" placeholder="Titulo" class="popup__name">
-        </div>
-        <div>
-            <label for="image" class="edit-about"> </label>
+        
             <input type="url" id="image" name="about" placeholder="Enlace a la imagen" class="popup__about">
-        </div>
+        
         <button id="save" class="popup__save">Guardar</button>
     </form> 
+    </div>
+</div>
+
+
+<div class="popup" id="popupImage">
+    <div class="popup__container">
+        <div class="header__form">
+            <button class="popup__close_image" type="button" onclick="cerrarPopup()">×</button>
+            <img src="./Images/Calvas.png" alt="" class="popup__image">
+            <p class="popup__title_image"></p>
+        </div>
     </div>
 </div>
 
@@ -116,9 +83,9 @@
        <img class="container__image" src="https://images.pexels.com/photos/1727799/pexels-photo-1727799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="CiudadM">
        <div class="container__hearts"> 
         <h2 class="container__title">Ciudad de México </h2>
-            <button class="container__heart">
-                
+            <button class="container__heart">  
             </button> 
+            <button class="container__trash"> </button>
          </div>
     </div>
      

@@ -42,6 +42,7 @@
 
 .header__form{
     display: block;
+    position: relative;
 }
 
 .header__button_add{

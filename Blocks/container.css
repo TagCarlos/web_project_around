@@ -1,21 +1,23 @@
 .container{
     display: grid;
     grid-template-columns: repeat(3, 32%);
-    grid-template-rows: repeat(2, 48%);
+    /* grid-template-rows: repeat(2, 48%); */
     gap: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .container__cards{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .container__image{
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     height: 80%;
 }
 
@@ -53,6 +55,20 @@
     background: transparent url(../Images/like-active.png) center no-repeat;
     
 
+}
+
+.container__trash{
+    background: transparent url(../Images/Trash.png) no-repeat;
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+}
+
+.container__trash:hover{
+    opacity: .5;
 }
 
 @media screen and (max-width: 768px) {
