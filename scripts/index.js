@@ -8,7 +8,7 @@ function abrirFormulario() {
   popupForm.classList.add("popup_opened");
 }
 //cierra formulario
-console.log(openButton)
+
 function cerrarFormulario() {
    popupForm.classList.remove("popup_opened");
 }
