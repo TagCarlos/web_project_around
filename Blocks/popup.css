@@ -12,6 +12,7 @@
 
 .popup_opened{
     display: flex;
+    width: 100%;
 }
 
 .popup__form{
@@ -130,7 +131,7 @@
         left: 220px;
     }
     .popup__container{
-        width: 100%;
+        width: 90%;
         font-size: 20px;
     }
 }
