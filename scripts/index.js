@@ -21,9 +21,11 @@ closeButton.addEventListener("submit", function (evt) {
    evt.preventDefault();
    let name = document.querySelector("#name").value;
    let about = document.querySelector("#about").value;
+   let title = document.querySelector(".header__name");
+   let activity = document.querySelector(".header__activity");
 
-  name.textContent = nombre;
-  about.textContent = mensaje;
+  title.textContent = name;
+  activity.textContent = about;
    cerrarFormulario();
 });
 
