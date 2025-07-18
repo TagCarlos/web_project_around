@@ -2,10 +2,14 @@ let openButton = document.querySelector("#edit");
 let popupForm = document.querySelector(".popup");
 let closeButton = popupForm.querySelector("#save");
 let closeButton2 = popupForm.querySelector(".popup__close");
+/* const nameInputForm = document.querySelector("#name");
+const aboutInputForm = document.querySelector("#about"); */
+
 
 //abre formulario
 function abrirFormulario() {
   popupForm.classList.add("popup_opened");
+  
 }
 //cierra formulario
 
@@ -148,7 +152,7 @@ closeButtonImage.addEventListener("submit", function (evt) {
 });
 
 // crea tarjeta personalizada
-let editImage = document.querySelector("#form-image");
+let editImage = document.querySelector("#form-image"); //#form-image
 
 function handleAddCard(submit) {
    
@@ -161,7 +165,3 @@ function handleAddCard(submit) {
     }
 
     editImage.addEventListener('submit', handleAddCard);
-
-
-
-
