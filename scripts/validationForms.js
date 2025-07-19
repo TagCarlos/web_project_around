@@ -13,7 +13,7 @@ function validateInput(input) {
   } else {
     span.textContent = "";
   }
-}
+} 
 
 // da verdad o falso en los inputs
 function validateAllInputs() {
@@ -55,3 +55,63 @@ document.addEventListener("keydown", function name(evt) {
     closeModal();
   } 
 });
+
+// crear una funcion general para todos los formularios 
+/* const forms = document.querySelector(".popup__form");
+const nameInputForm = document.querySelector("#name");
+const aboutInputForm = document.querySelector("#about");
+const nameInputError = document.querySelector("#name-error");
+
+nameInputForm.addEventListener("input", function () {
+  nameInputError.textContent = nameInputForm.validateMessage;
+});
+
+aboutInputForm.addEventListener("input", function () {});
+
+forms.addEventListener("submit" function (e) {
+  evt.preventDefault();
+}); */
+
+
+//aqui se empieza a estandarizar todos los formularios
+function enableValidation() {
+  const formList = document.querySelectorAll("form")
+
+  formList.forEach(function (form) {
+    const inputList = Array.from(form.querySelectorAll("input"));
+    setEventListener(form, inputList);
+});
+
+function setEventListener(form, inputList) {
+  const buttonElement = form.querySelector(".popup__save");
+  validateButton(buttonElement, inputList);
+  form.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+    inputList.forEach(function (input) {});
+    input.addEventListener("input", function () {
+      showInputError(input);
+      validateButton(buttonElement, inputList);
+    });
+  }
+}
+
+function validateButton(buttonElement, inputList) {
+  if(checkInputsValidity(inputList)){
+    buttonElement.classList.add("popup__save:disabled")
+  } else{
+    buttonElement.classList.remove("popup__save:disabled")
+  }
+}  
+
+function checkInputsValidity(inputList) {
+  return inputList.some(function(input)
+  {return !input.validity.valid});
+}
+
+function showInputError(input) {
+  const spanElement = document.querySelector(`#${input.id}-error`);
+  spanElement.textContent = input.validationMessage;
+}
+
+enableValidation();
