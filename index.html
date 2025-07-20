@@ -37,14 +37,13 @@
 <div class="popup" id="modalOverlay">
     <div class="popup__container">
     <form id="form" class="popup__form">
-            <button class="popup__close" type="button" onclick="cerrarPopup()">×</button>
+            <button class="popup__close" type="button">×</button>
             <h2 class="popup__title">Editar perfil</h2>
-            <!-- <label for="name" class="edit-name"> </label> -->
             <input type="text" id="name" name="name" placeholder="Nombre" class="popup__name" required minlength="2" maxlength="40">
             <span class="label__name" id="name-error"></span>
         
         <div>
-            <!-- <label for="about" class="edit-about"> </label> -->
+            
             <input type="text" id="about" name="about" placeholder="Acerca de mi" class="popup__about" required minlength="2" maxlength="200">
             <span class="label__about" id="about-error"></span>
         </div>
@@ -56,13 +55,12 @@
 <div class="popup" id="popup">
     <div class="popup__container">
     <form id="form-image" class="popup__form">
-            <button class="popup__close" type="button" onclick="cerrarPopup()">×</button>
+            <button class="popup__close" type="button">×</button>
             <h2 class="popup__title">Nuevo lugar</h2>
             <input type="text" id="title" name="title" placeholder="Titulo" class="popup__name" required minlength="2" maxlength="20">
             <span class="label__name" id="title-error"></span>
-        
             <input type="url" id="image" name="url" placeholder="Enlace a la imagen" class="popup__about" required>
-            <span class="label__about" id="url-error"></span>
+            <span class="label__about" id="image-error"></span>
         
         <button id="save" class="popup__save">Guardar</button>
     </form> 
@@ -73,7 +71,7 @@
 <div class="popup" id="popupImage">
     <div class="popup__container" id="popupContainerImage">
         <div class="header__form">
-            <button class="popup__close_image" type="button" onclick="cerrarPopup()">×</button>
+            <button class="popup__close_image" type="button">×</button>
             <img src="./Images/Calvas.png" alt="" class="popup__image">
             <p class="popup__title_image"></p>
         </div>

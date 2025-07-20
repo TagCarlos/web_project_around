@@ -2,19 +2,36 @@ let openButton = document.querySelector("#edit");
 let popupForm = document.querySelector(".popup");
 let closeButton = popupForm.querySelector("#save");
 let closeButton2 = popupForm.querySelector(".popup__close");
+const modalOverlay = document.querySelector(".modalOverlay");
 /* const nameInputForm = document.querySelector("#name");
 const aboutInputForm = document.querySelector("#about"); */
 
 
 //abre formulario
+function closeModal() {
+  const modalOverlay = document.querySelector(".modalOverlay");
+  modalOverlay.classList.remove("popup_opened");
+   modalOverlay.classList.remove("modalOverlay");
+}
+
 function abrirFormulario() {
   popupForm.classList.add("popup_opened");
-  
+  popupForm.classList.add("modalOverlay");
+  const modalOverlay = document.querySelector(".modalOverlay");
+
+modalOverlay.addEventListener("click", function (event) {
+  if (event.target === modalOverlay) {
+    closeModal();
+    popupForm.classList.remove("modalOverlay");
+  }
+});
 }
+
 //cierra formulario
 
 function cerrarFormulario() {
    popupForm.classList.remove("popup_opened");
+   popupForm.classList.remove("modalOverlay");
 }
 
 openButton.addEventListener("click", abrirFormulario);
@@ -112,6 +129,25 @@ function createCard(name, link){
     const popupImageElement = document.querySelector(".popup__image");
     const popupImageTitle = document.querySelector(".popup__title_image");
     popupImage.classList.add("popup_opened");
+    popupImage.classList.add("modalOverlay");
+    const modalOverlay = document.querySelector(".modalOverlay");
+    modalOverlay.addEventListener("click", function (event) {
+  if (event.target === modalOverlay) {
+    closeModal();
+    popupImage.classList.remove("modalOverlay");
+  }
+});
+function closeModal() {
+  modalOverlay.classList.remove("popup_opened");
+  popupImage.classList.remove("modalOverlay");
+}
+
+// cerrar popup con tecla de esc
+document.addEventListener("keydown", function name(evt) {
+  if (evt.key === "Escape") {
+    closeModal();
+  } 
+}); 
     popupImageElement.src = link;
     popupImageTitle.textContent = name;
    }) 
@@ -127,21 +163,31 @@ function createCard(name, link){
 //crea formulario para añadir tarjeta
 let openButton2 = document.querySelector("#add-image");
 let popupForm2 = document.querySelector("#popup");
-let closeButtonImage = popupForm2.querySelector("#save");
-let closeButtonImage2 = popupForm2.querySelector(".popup__close");
+let closeButtonImage = popupForm2.querySelector("#save"); 
+let closeButtonImage2 = popupForm2.querySelector(".popup__close");  
 
 function abrirFormulario2() {
-  popupForm2.classList.add("popup_opened");
+  popupForm2.classList.add("popup_opened");  
+  popupForm2.classList.add("modalOverlay");  
+  const modalOverlay = document.querySelector(".modalOverlay");
+
+modalOverlay.addEventListener("click", function (event) {
+  if (event.target === modalOverlay) {
+    closeModal();
+    popupForm2.classList.remove("modalOverlay");
+  }
+});
 }
 function cerrarFormulario2() {
-   popupForm2.classList.remove("popup_opened");
+   popupForm2.classList.remove("popup_opened"); 
+   popupForm2.classList.remove("modalOverlay"); 
 }
 
 openButton2.addEventListener("click", abrirFormulario2);
-closeButtonImage.addEventListener("click", cerrarFormulario2);
-closeButtonImage2.addEventListener("click", cerrarFormulario2);
+closeButtonImage2.addEventListener("click", cerrarFormulario2); 
+closeButtonImage2.addEventListener("click", cerrarFormulario2); 
 
-closeButtonImage.addEventListener("submit", function (evt) {
+closeButtonImage.addEventListener("submit", function (evt) {   
    evt.preventDefault();
    let title = document.querySelector("#title").value;
    let image = document.querySelector("#image").value;
@@ -162,6 +208,9 @@ function handleAddCard(submit) {
     let link = document.querySelector("#image");
    
     createCard(title.value, link.value);
+    
     }
 
     editImage.addEventListener('submit', handleAddCard);
+
+    

@@ -1,8 +1,8 @@
 //validacion de formularios
-const inputList = Array.from(form.querySelectorAll("input"));
+/* const inputList = Array.from(form.querySelectorAll("input"));
 const spanMessageName = document.querySelector(".label__name");
 const spanMessageAbout = document.querySelector(".label__about");
-const modalOverlay = document.querySelector("#modalOverlay");
+
 
 //evento para cuando el usuario escribe en el nombre
 function validateInput(input) {
@@ -54,7 +54,7 @@ document.addEventListener("keydown", function name(evt) {
   if (evt.key === "Escape") {
     closeModal();
   } 
-});
+}); */
 
 // crear una funcion general para todos los formularios 
 /* const forms = document.querySelector(".popup__form");
@@ -74,8 +74,13 @@ forms.addEventListener("submit" function (e) {
 
 
 //aqui se empieza a estandarizar todos los formularios
+
+
+
+
 function enableValidation() {
   const formList = document.querySelectorAll("form")
+  console.log("formList", formList)
 
   formList.forEach(function (form) {
     const inputList = Array.from(form.querySelectorAll("input"));
@@ -88,11 +93,15 @@ function setEventListener(form, inputList) {
   form.addEventListener("submit", function (evt) {
       evt.preventDefault();
     });
-    inputList.forEach(function (input) {});
-    input.addEventListener("input", function () {
+    inputList.forEach(function (input) {input.addEventListener("input", function () {
       showInputError(input);
       validateButton(buttonElement, inputList);
-    });
+    });});
+    document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    closeModal();
+  } 
+});
   }
 }
 
@@ -115,3 +124,5 @@ function showInputError(input) {
 }
 
 enableValidation();
+
+//cerrar ventana de las imagenes con Esc y overlay
