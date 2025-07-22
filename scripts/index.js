@@ -2,10 +2,6 @@ let openButton = document.querySelector("#edit");
 let popupForm = document.querySelector(".popup__form_Edit");
 let closeButton = popupForm.querySelector("#save");
 let closeButton2 = popupForm.querySelector(".popup__button_close");
-/* const modalOverlay = document.querySelector(".modalOverlay"); */
-/* const nameInputForm = document.querySelector("#name");
-const aboutInputForm = document.querySelector("#about"); */
-
 
 //abre formulario
 function closeModal() {
