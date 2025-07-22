@@ -34,20 +34,20 @@
     </section>
 </main>
 <footer class="footer">© 2024 Around The MX</footer>
-<div class="popup" id="modalOverlay">
+<div class="popup popup__form_Edit" id="modalOverlay">
     <div class="popup__container">
     <form id="form" class="popup__form">
-            <button class="popup__close" type="button">×</button>
+            <button class="popup__button popup__button_close" type="button">×</button>
             <h2 class="popup__title">Editar perfil</h2>
-            <input type="text" id="name" name="name" placeholder="Nombre" class="popup__name" required minlength="2" maxlength="40">
+            <input type="text" id="name" name="name" placeholder="Nombre" class="popup__input popup__input_name" required minlength="2" maxlength="40">
             <span class="label__name" id="name-error"></span>
         
         <div>
             
-            <input type="text" id="about" name="about" placeholder="Acerca de mi" class="popup__about" required minlength="2" maxlength="200">
+            <input type="text" id="about" name="about" placeholder="Acerca de mi" class="popup__input popup__input_about" required minlength="2" maxlength="200">
             <span class="label__about" id="about-error"></span>
         </div>
-        <button id="save" class="popup__save">Guardar</button>
+        <button id="save" class="popup__button popup__button_save">Guardar</button>
     </form> 
     </div>
 </div>
@@ -55,14 +55,14 @@
 <div class="popup" id="popup">
     <div class="popup__container">
     <form id="form-image" class="popup__form">
-            <button class="popup__close" type="button">×</button>
+            <button class="popup__button popup__button_close" type="button">×</button>
             <h2 class="popup__title">Nuevo lugar</h2>
-            <input type="text" id="title" name="title" placeholder="Titulo" class="popup__name" required minlength="2" maxlength="20">
+            <input type="text" id="title" name="title" placeholder="Titulo" class="popup__input popup__input_name" required minlength="2" maxlength="20">
             <span class="label__name" id="title-error"></span>
-            <input type="url" id="image" name="url" placeholder="Enlace a la imagen" class="popup__about" required>
+            <input type="url" id="image" name="url" placeholder="Enlace a la imagen" class="popup__input popup__input_about" required>
             <span class="label__about" id="image-error"></span>
         
-        <button id="save" class="popup__save">Guardar</button>
+        <button id="save" class="popup__button popup__button_save">Guardar</button>
     </form> 
     </div>
 </div>
@@ -71,7 +71,7 @@
 <div class="popup" id="popupImage">
     <div class="popup__container" id="popupContainerImage">
         <div class="header__form">
-            <button class="popup__close_image" type="button">×</button>
+            <button class="popup__button_close_image" type="button">×</button>
             <img src="./Images/Calvas.png" alt="" class="popup__image">
             <p class="popup__title_image"></p>
         </div>

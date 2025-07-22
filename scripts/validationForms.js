@@ -83,12 +83,12 @@ function enableValidation() {
   console.log("formList", formList)
 
   formList.forEach(function (form) {
-    const inputList = Array.from(form.querySelectorAll("input"));
-    setEventListener(form, inputList);
+    const inputList = Array.from(form.querySelectorAll("input")); //enableValidation.inputSelector
+    setEventListener(form, inputList); //agregar enableValidation
 });
 
 function setEventListener(form, inputList) {
-  const buttonElement = form.querySelector(".popup__save");
+  const buttonElement = form.querySelector(".popup__button_save"); //enableValidation.submitButtonSelector
   validateButton(buttonElement, inputList);
   form.addEventListener("submit", function (evt) {
       evt.preventDefault();
@@ -107,9 +107,9 @@ function setEventListener(form, inputList) {
 
 function validateButton(buttonElement, inputList) {
   if(checkInputsValidity(inputList)){
-    buttonElement.classList.add("popup__save:disabled")
+    buttonElement.classList.add("popup__button_save:disabled")
   } else{
-    buttonElement.classList.remove("popup__save:disabled")
+    buttonElement.classList.remove("popup__button_save:disabled")
   }
 }  
 
@@ -126,3 +126,11 @@ function showInputError(input) {
 enableValidation();
 
 //cerrar ventana de las imagenes con Esc y overlay
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
+});

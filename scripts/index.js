@@ -1,8 +1,8 @@
 let openButton = document.querySelector("#edit");
-let popupForm = document.querySelector(".popup");
+let popupForm = document.querySelector(".popup__form_Edit");
 let closeButton = popupForm.querySelector("#save");
-let closeButton2 = popupForm.querySelector(".popup__close");
-const modalOverlay = document.querySelector(".modalOverlay");
+let closeButton2 = popupForm.querySelector(".popup__button_close");
+/* const modalOverlay = document.querySelector(".modalOverlay"); */
 /* const nameInputForm = document.querySelector("#name");
 const aboutInputForm = document.querySelector("#about"); */
 
@@ -151,7 +151,7 @@ document.addEventListener("keydown", function name(evt) {
     popupImageElement.src = link;
     popupImageTitle.textContent = name;
    }) 
-   let closeFormImage = document.querySelector(".popup__close_image");
+   let closeFormImage = document.querySelector(".popup__button_close_image");
    let popupForm3 = document.querySelector("#popupImage");
    function closeFormImages() {
     popupForm3.classList.remove("popup_opened");
@@ -164,7 +164,7 @@ document.addEventListener("keydown", function name(evt) {
 let openButton2 = document.querySelector("#add-image");
 let popupForm2 = document.querySelector("#popup");
 let closeButtonImage = popupForm2.querySelector("#save"); 
-let closeButtonImage2 = popupForm2.querySelector(".popup__close");  
+let closeButtonImage2 = popupForm2.querySelector(".popup__button_close");  
 
 function abrirFormulario2() {
   popupForm2.classList.add("popup_opened");  
@@ -212,5 +212,3 @@ function handleAddCard(submit) {
     }
 
     editImage.addEventListener('submit', handleAddCard);
-
-    

@@ -24,17 +24,17 @@
     height: 330px;
 }
 
-.popup__close{
+.popup__button_close{
     position: absolute;
     right: -30px;
-    top: -50px; /* aqui por -90 para que se vea la x */
+    top: -50px; 
     background-color: transparent;
     border: none;
     font-size: 50px;
     color: white;
 }
 
-.popup__close:hover{
+.popup__button_close:hover{
     opacity: .5;
 }
 
@@ -43,7 +43,7 @@
     padding: 10px 0 0 5px;
 }
 
-.popup__name{
+.popup__input_name{
     font-size: 20px;
     border: none;
     border-bottom: 1px solid rgba(84, 84, 84, 1);
@@ -51,7 +51,7 @@
     width: 350px;
 }
 
-.popup__about{
+.popup__input_about{
     font-size: 20px;
     border: none;
     border-bottom: 1px solid rgba(84, 84, 84, 1);
@@ -59,7 +59,7 @@
     width: 350px;
 }
 
-.popup__save{
+.popup__button_save{
   background: rgba(0, 0, 0, 1);
   color: white;
   border: 1px solid gray;
@@ -71,15 +71,15 @@
   padding: 15px;
 }
 
-.popup__save:hover{
+.popup__button_save:hover{
     opacity: .5;
 }
 
-.popup__save:disabled{
+.popup__button_save:disabled{
     background-color: gray;
 }
 
-.popup__close_image{
+.popup__button_close_image{
     position: absolute;
     right: -35px;
     top: -50px;
@@ -87,6 +87,10 @@
     border: none;
     font-size: 50px;
     color: white;
+}
+
+.popup__button_close_image:hover{
+    opacity: .5;
 }
 
 .popup__image{
@@ -121,17 +125,17 @@
         row-gap: 20px;
     }
 
-    .popup__name{
+    .popup__input_name{
         margin: 0;
         width: 98%;
     }
 
-    .popup__about{
+    .popup__input_about{
         margin: 0;
         width: 98%;
     }
 
-    .popup__close{
+    .popup__button_close{
         left: 220px;
     }
     .popup__container{
