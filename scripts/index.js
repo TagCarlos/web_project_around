@@ -1,15 +1,43 @@
-let openButton = document.querySelector("#edit");
-let popupForm = document.querySelector(".popup__form_Edit");
-let closeButton = popupForm.querySelector("#save");
-let closeButton2 = popupForm.querySelector(".popup__button_close");
+import Card from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+import { closePopupEscape,} from "./utils.js";
 
-//abre formulario
-function closeModal() {
+
+closePopupEscape();
+
+const validationConfiguration = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button_save",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
+};
+
+const validationConfigurationCards = {
+  formSelector: "#form-image",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
+};
+
+
+let openButtonEditProfile = document.querySelector("#edit");
+let popupForm = document.querySelector(".popup__form_Edit");
+let closeButtonSave = popupForm.querySelector("#save");
+let closeButtonX = popupForm.querySelector(".popup__button_close");
+
+
+
+//cierra formulario fuera del contenedor
+/* function closeModal() {
   const modalOverlay = document.querySelector(".modalOverlay");
   modalOverlay.classList.remove("popup_opened");
    modalOverlay.classList.remove("modalOverlay");
-}
-
+} */
+//abre formulario
 function abrirFormulario() {
   popupForm.classList.add("popup_opened");
   popupForm.classList.add("modalOverlay");
@@ -21,20 +49,19 @@ modalOverlay.addEventListener("click", function (event) {
     popupForm.classList.remove("modalOverlay");
   }
 });
-}
+} 
 
 //cierra formulario
-
 function cerrarFormulario() {
    popupForm.classList.remove("popup_opened");
    popupForm.classList.remove("modalOverlay");
 }
 
-openButton.addEventListener("click", abrirFormulario);
-closeButton.addEventListener("click", cerrarFormulario);
-closeButton2.addEventListener("click", cerrarFormulario);
+openButtonEditProfile.addEventListener("click", abrirFormulario);
+closeButtonSave.addEventListener("click", cerrarFormulario); 
+closeButtonX.addEventListener("click", cerrarFormulario);
 
-closeButton.addEventListener("submit", function (evt) {
+closeButtonSave.addEventListener("submit", function (evt) { 
    evt.preventDefault();
    let name = document.querySelector("#name").value;
    let about = document.querySelector("#about").value;
@@ -47,23 +74,22 @@ closeButton.addEventListener("submit", function (evt) {
 });
 
 //editar nombre y sobre mi
-
-let formElement = document.querySelector("#form") 
+let formElement = document.querySelector("#form")
 
 function handleProfileFormSubmit(evt) {
-   
-    evt.preventDefault();
-    
-    let nameInput = document.querySelector("#name");
-    let jobInput = document.querySelector("#about");
-    let nameDisplay = document.querySelector(".header__name"); 
-    let jobDisplay = document.querySelector(".header__activity");
-    
 
-    nameDisplay.textContent = nameInput.value;
-    jobDisplay.textContent = jobInput.value;
-    // Inserta nuevos valores utilizando el textContent
-    // propiedad del método querySelector()
+  evt.preventDefault();
+
+  let nameInput = document.querySelector("#name");
+  let jobInput = document.querySelector("#about");
+  let nameDisplay = document.querySelector(".header__name");
+  let jobDisplay = document.querySelector(".header__activity");
+
+
+  nameDisplay.textContent = nameInput.value;
+  jobDisplay.textContent = jobInput.value;
+  // Inserta nuevos valores utilizando el textContent
+  // propiedad del método querySelector()
 }
 
 // Conecta el manipulador (handler) al formulario:
@@ -100,27 +126,36 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(function(item) {
-   createCard(item.name, item.link);
-}); 
+initialCards.forEach(function (item) {
+  const card = new Card(item.name, item.link, ".template__card");
+  document.querySelector(".container").prepend(card.createCard());
+  card.setEventListener();
 
-function createCard(name, link){
-   const clonedCard = templateCard.content.querySelector(".container__cards").cloneNode(true);
-   const cardTitle = clonedCard.querySelector(".container__title");
-   const cardImage = clonedCard.querySelector(".container__image");
-   const cardLikeButton = clonedCard.querySelector(".container__heart");
-   const deleteButton = clonedCard.querySelector(".container__trash");
-   
-   cardTitle.textContent = name;
-   cardImage.src = link;
-   cardsList.prepend(clonedCard);
-   cardLikeButton.addEventListener("click", function() {
-   cardLikeButton.classList.toggle("container__heart_active");
-   })
-   deleteButton.addEventListener("click", function(){
-    clonedCard.remove();
-   })
-   cardImage.addEventListener("click", function(){
+});
+export function closeModal() {
+      modalOverlay.classList.remove("popup_opened");
+      popupImage.classList.remove("modalOverlay");
+      popupImage.classList.remove("popup_opened");
+      popupFormNewPlace.classList.remove("popup_opened");
+      popupFormNewPlace.classList.remove("modalOverlay");
+      
+    };
+function createCard(name, link) {
+  const clonedCard = templateCard.content.querySelector(".container__cards").cloneNode(true);
+  const cardTitle = clonedCard.querySelector(".container__title");
+  const cardImage = clonedCard.querySelector(".container__image");
+  const cardLikeButton = clonedCard.querySelector(".container__heart");
+  const deleteButton = clonedCard.querySelector(".container__trash");
+
+  cardTitle.textContent = name;
+  cardImage.src = link;
+  cardsList.prepend(clonedCard);
+  cardLikeButton.addEventListener("click", function () {
+    cardLikeButton.classList.toggle("container__heart_active");
+  })
+  
+
+  cardImage.addEventListener("click", function () {
     const popupImage = document.querySelector("#popupImage");
     const popupImageElement = document.querySelector(".popup__image");
     const popupImageTitle = document.querySelector(".popup__title_image");
@@ -128,83 +163,75 @@ function createCard(name, link){
     popupImage.classList.add("modalOverlay");
     const modalOverlay = document.querySelector(".modalOverlay");
     modalOverlay.addEventListener("click", function (event) {
-  if (event.target === modalOverlay) {
-    closeModal();
-    popupImage.classList.remove("modalOverlay");
-  }
-});
-function closeModal() {
-  modalOverlay.classList.remove("popup_opened");
-  popupImage.classList.remove("modalOverlay");
+      if (event.target === modalOverlay) {
+        closeModal();
+        popupImage.classList.remove("modalOverlay");
+      }
+    });
+  }) 
 }
-
-// cerrar popup con tecla de esc
-document.addEventListener("keydown", function name(evt) {
-  if (evt.key === "Escape") {
-    closeModal();
-  } 
-}); 
-    popupImageElement.src = link;
-    popupImageTitle.textContent = name;
-   }) 
-   let closeFormImage = document.querySelector(".popup__button_close_image");
-   let popupForm3 = document.querySelector("#popupImage");
-   function closeFormImages() {
+let closeFormImage = document.querySelector(".popup__button_close_image"); //este se queda
+  let popupForm3 = document.querySelector("#popupImage");
+  function closeFormImages() {
     popupForm3.classList.remove("popup_opened");
-   }
-   closeFormImage.addEventListener("click", closeFormImages);
-   closeFormImages();
-   }
+  }
+  closeFormImage.addEventListener("click", closeFormImages);
 
-//crea formulario para añadir tarjeta
-let openButton2 = document.querySelector("#add-image");
-let popupForm2 = document.querySelector("#popup");
-let closeButtonImage = popupForm2.querySelector("#save"); 
-let closeButtonImage2 = popupForm2.querySelector(".popup__button_close");  
 
-function abrirFormulario2() {
-  popupForm2.classList.add("popup_opened");  
-  popupForm2.classList.add("modalOverlay");  
+//crea formulario para añadir tarjeta "nuevo lugar"
+let openButtonNewPlace = document.querySelector("#add-image");
+let popupFormNewPlace = document.querySelector("#popup");
+let closeButtonImage = popupFormNewPlace.querySelector("#save");
+let closeButtonImageX = popupFormNewPlace.querySelector(".popup__button_close");
+
+function openFormNewPlace() {
+  popupFormNewPlace.classList.add("popup_opened");
+  popupFormNewPlace.classList.add("modalOverlay");
   const modalOverlay = document.querySelector(".modalOverlay");
 
-modalOverlay.addEventListener("click", function (event) {
-  if (event.target === modalOverlay) {
-    closeModal();
-    popupForm2.classList.remove("modalOverlay");
-  }
-});
-}
-function cerrarFormulario2() {
-   popupForm2.classList.remove("popup_opened"); 
-   popupForm2.classList.remove("modalOverlay"); 
-}
+  modalOverlay.addEventListener("click", function (event) {
+    if (event.target === modalOverlay) {
+      closeModal();
+    }
+  });
+} 
 
-openButton2.addEventListener("click", abrirFormulario2);
-closeButtonImage2.addEventListener("click", cerrarFormulario2); 
-closeButtonImage2.addEventListener("click", cerrarFormulario2); 
+openButtonNewPlace.addEventListener("click", openFormNewPlace);
+closeButtonImageX.addEventListener("click", closeModal);
+closeButtonImageX.addEventListener("click", closeModal);
 
-closeButtonImage.addEventListener("submit", function (evt) {   
-   evt.preventDefault();
-   let title = document.querySelector("#title").value;
-   let image = document.querySelector("#image").value;
+closeButtonImage.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  let title = document.querySelector("#title").value;
+  let image = document.querySelector("#image").value;
 
   title.textContent = nombre;
   image.textContent = mensaje;
-   cerrarFormulario2();
+  closeFormNewPlace();
 });
 
 // crea tarjeta personalizada
 let editImage = document.querySelector("#form-image"); //#form-image
 
-function handleAddCard(submit) {
-   
-    submit.preventDefault();
-    
-    let title = document.querySelector("#title");
-    let link = document.querySelector("#image");
-   
-    createCard(title.value, link.value);
-    
-    }
 
-    editImage.addEventListener('submit', handleAddCard);
+function handleAddCard(submit) {
+
+  submit.preventDefault();
+
+  let title = document.querySelector("#title");
+  let link = document.querySelector("#image");
+
+  createCard(title.value, link.value);
+
+}
+
+//hace que agreguen cartas personalizadas desde el boton "nuevo lugar"
+editImage.addEventListener('submit', handleAddCard);
+
+//intancias para las clases
+
+const formValidatorProfile = new FormValidator(validationConfiguration);
+formValidatorProfile.enableValidation();
+
+const formValidatorCard = new FormValidator(validationConfigurationCards);
+formValidatorCard.enableValidation();
