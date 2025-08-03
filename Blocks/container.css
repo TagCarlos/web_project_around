@@ -1,16 +1,16 @@
 .container{
     display: grid;
     grid-template-columns: repeat(3, 32%);
-    /* grid-template-rows: repeat(2, 48%); */
     gap: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    /* overflow: hidden; */
+    justify-content: center;
 }
 .container__cards{
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-top: 15px;
 }
 .container__image{
     width: 100%;
@@ -83,4 +83,5 @@
         display: block;
         margin: 5px;
     }
+
 }
