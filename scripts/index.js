@@ -24,31 +24,23 @@ const validationConfigurationCards = {
 };
 
 
-let openButtonEditProfile = document.querySelector("#edit");
-let popupForm = document.querySelector(".popup__form_Edit");
-let closeButtonSave = popupForm.querySelector("#save");
-let closeButtonX = popupForm.querySelector(".popup__button_close");
+const openButtonEditProfile = document.querySelector("#edit");
+const popupForm = document.querySelector(".popup__form_Edit");
+const closeButtonSave = popupForm.querySelector("#save");
+const closeButtonX = popupForm.querySelector(".popup__button_close");
 
-
-
-//cierra formulario fuera del contenedor
-/* function closeModal() {
-  const modalOverlay = document.querySelector(".modalOverlay");
-  modalOverlay.classList.remove("popup_opened");
-   modalOverlay.classList.remove("modalOverlay");
-} */
 //abre formulario
 function abrirFormulario() {
   popupForm.classList.add("popup_opened");
   popupForm.classList.add("modalOverlay");
   const modalOverlay = document.querySelector(".modalOverlay");
 
-modalOverlay.addEventListener("click", function (event) {
-  if (event.target === modalOverlay) {
-    closeModal();
-    popupForm.classList.remove("modalOverlay");
-  }
-});
+  modalOverlay.addEventListener("click", function (event) {
+    if (event.target === modalOverlay) {
+      closeModal();
+      popupForm.classList.remove("modalOverlay");
+    }
+  });
 } 
 
 //cierra formulario
@@ -63,14 +55,14 @@ closeButtonX.addEventListener("click", cerrarFormulario);
 
 closeButtonSave.addEventListener("submit", function (evt) { 
    evt.preventDefault();
-   let name = document.querySelector("#name").value;
-   let about = document.querySelector("#about").value;
-   let title = document.querySelector(".header__name");
-   let activity = document.querySelector(".header__activity");
+   const name = document.querySelector("#name").value;
+   const about = document.querySelector("#about").value;
+   const title = document.querySelector(".header__name");
+   const activity = document.querySelector(".header__activity");
 
   title.textContent = name;
   activity.textContent = about;
-   cerrarFormulario();
+  cerrarFormulario();
 });
 
 //editar nombre y sobre mi
@@ -80,11 +72,10 @@ function handleProfileFormSubmit(evt) {
 
   evt.preventDefault();
 
-  let nameInput = document.querySelector("#name");
-  let jobInput = document.querySelector("#about");
-  let nameDisplay = document.querySelector(".header__name");
-  let jobDisplay = document.querySelector(".header__activity");
-
+  const nameInput = document.querySelector("#name");
+  const jobInput = document.querySelector("#about");
+  const nameDisplay = document.querySelector(".header__name");
+  const jobDisplay = document.querySelector(".header__activity");
 
   nameDisplay.textContent = nameInput.value;
   jobDisplay.textContent = jobInput.value;
@@ -127,62 +118,35 @@ const initialCards = [
 ];
 
 initialCards.forEach(function (item) {
-  const card = new Card(item.name, item.link, ".template__card");
-  document.querySelector(".container").prepend(card.createCard());
+  const card = new Card(item.name, item.link, templateCard);
+  //document.querySelector(".container").prepend(card.createCard());
+  cardsList.prepend(card.createCard());
   card.setEventListener();
 
 });
+
 export function closeModal() {
       modalOverlay.classList.remove("popup_opened");
       popupImage.classList.remove("modalOverlay");
       popupImage.classList.remove("popup_opened");
       popupFormNewPlace.classList.remove("popup_opened");
       popupFormNewPlace.classList.remove("modalOverlay");
-      
     };
-function createCard(name, link) {
-  const clonedCard = templateCard.content.querySelector(".container__cards").cloneNode(true);
-  const cardTitle = clonedCard.querySelector(".container__title");
-  const cardImage = clonedCard.querySelector(".container__image");
-  const cardLikeButton = clonedCard.querySelector(".container__heart");
-  const deleteButton = clonedCard.querySelector(".container__trash");
 
-  cardTitle.textContent = name;
-  cardImage.src = link;
-  cardsList.prepend(clonedCard);
-  cardLikeButton.addEventListener("click", function () {
-    cardLikeButton.classList.toggle("container__heart_active");
-  })
-  
 
-  cardImage.addEventListener("click", function () {
-    const popupImage = document.querySelector("#popupImage");
-    const popupImageElement = document.querySelector(".popup__image");
-    const popupImageTitle = document.querySelector(".popup__title_image");
-    popupImage.classList.add("popup_opened");
-    popupImage.classList.add("modalOverlay");
-    const modalOverlay = document.querySelector(".modalOverlay");
-    modalOverlay.addEventListener("click", function (event) {
-      if (event.target === modalOverlay) {
-        closeModal();
-        popupImage.classList.remove("modalOverlay");
-      }
-    });
-  }) 
-}
 let closeFormImage = document.querySelector(".popup__button_close_image"); //este se queda
-  let popupForm3 = document.querySelector("#popupImage");
-  function closeFormImages() {
-    popupForm3.classList.remove("popup_opened");
-  }
-  closeFormImage.addEventListener("click", closeFormImages);
+const popupForm3 = document.querySelector("#popupImage");
+function closeFormImages() {
+  popupForm3.classList.remove("popup_opened");
+}
+closeFormImage.addEventListener("click", closeFormImages);
 
 
 //crea formulario para añadir tarjeta "nuevo lugar"
-let openButtonNewPlace = document.querySelector("#add-image");
-let popupFormNewPlace = document.querySelector("#popup");
-let closeButtonImage = popupFormNewPlace.querySelector("#save");
-let closeButtonImageX = popupFormNewPlace.querySelector(".popup__button_close");
+const openButtonNewPlace = document.querySelector("#add-image");
+const popupFormNewPlace = document.querySelector("#popup");
+const closeButtonImage = popupFormNewPlace.querySelector("#save");
+const closeButtonImageX = popupFormNewPlace.querySelector(".popup__button_close");
 
 function openFormNewPlace() {
   popupFormNewPlace.classList.add("popup_opened");
@@ -205,23 +169,26 @@ closeButtonImage.addEventListener("submit", function (evt) {
   let title = document.querySelector("#title").value;
   let image = document.querySelector("#image").value;
 
-  title.textContent = nombre;
+  /* title.textContent = nombre;
   image.textContent = mensaje;
-  closeFormNewPlace();
+  closeFormNewPlace(); */
 });
 
 // crea tarjeta personalizada
-let editImage = document.querySelector("#form-image"); //#form-image
+const editImage = document.querySelector("#form-image"); //#form-image
 
 
 function handleAddCard(submit) {
 
   submit.preventDefault();
 
-  let title = document.querySelector("#title");
-  let link = document.querySelector("#image");
+  const title = document.querySelector("#title").value;
+  const link = document.querySelector("#image").value;
 
-  createCard(title.value, link.value);
+  const card = new Card(title, link, templateCard);
+  cardsList.prepend(card.createCard());
+  //document.querySelector(".container").prepend(card.createCard());
+  card.setEventListener();
 
 }
 

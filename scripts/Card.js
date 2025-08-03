@@ -3,9 +3,10 @@ export default class Card {
         this._title = title;
         this._imageLink = link;
         this._selector = selector;
-        this.templateCard = document.querySelector(".template__card")
+        this.templateCard = document.querySelector(".template__card");
         this.cardsList = document.querySelector(".container");
     }
+
     createCard() {
         this.clonedCard = this.templateCard.content.querySelector(".container__cards").cloneNode(true);
         this.cardTitle = this.clonedCard.querySelector(".container__title");
@@ -19,10 +20,8 @@ export default class Card {
 
         return this.clonedCard;
     }
+
     setEventListener() {
-        this.deleteButton.addEventListener("click", () => {
-            this.clonedCard.remove();
-        });
         this.cardImage.addEventListener("click", () => {
             this.popupImage = document.querySelector("#popupImage");
             this.popupImageElement = document.querySelector(".popup__image");
@@ -44,6 +43,7 @@ export default class Card {
             console.log(this.cardLikeButton);
             this.cardLikeButton.classList.toggle("container__heart_active");
         });
+
         this.deleteButton.addEventListener("click", () => {
             this.clonedCard.remove();
         });
@@ -59,11 +59,5 @@ export default class Card {
 
         this.popupForm3.classList.remove("popup_opened");
     };
-    handleAddCard() {
-        submit.preventDefault();
-        this.editImage = document.querySelector("#form-image");
-        this.title = document.querySelector("#title");
-        this.link = document.querySelector("#image");
-        createCard(title.value, link.value);
-    };
+
 }
