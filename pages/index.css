@@ -1,9 +1,9 @@
-@import url(../Blocks/normalize.css);
+@import url(../blocks/normalize.css);
 @import url(../vendor/fonts/fonts.css);
-@import url(../Blocks/body.css);
-@import url(../Blocks/header.css);
-@import url(../Blocks/container.css);
-@import url(../Blocks/footer.css);
-@import url(../Blocks/popup.css);
-@import url(../Blocks/input.css);
-@import url(../Blocks/label.css);
+@import url(../blocks/body.css);
+@import url(../blocks/header.css);
+@import url(../blocks/container.css);
+@import url(../blocks/footer.css);
+@import url(../blocks/popup.css);
+@import url(../blocks/input.css);
+@import url(../blocks/label.css);

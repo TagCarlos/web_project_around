@@ -11,8 +11,7 @@ const openPopup = new Popup(".popup");
 openPopup.setEventListeners();
 
 const popupProfile = new PopupWithForm("#edit-popup", (data) => {
-  console.log(data);
-  userProfile.setUserInfo(data.name, data.job)
+  userProfile.setUserInfo({userName: data.name, userJob: data.about})
 });
 popupProfile.setEventListeners();
 const popupCards = new PopupWithForm("#new-card-popup", (data) => {
@@ -28,8 +27,8 @@ const popupWithImage = new PopupWithImage("#popupImage");
 popupWithImage.setEventListeners();
 
 const userProfile = new UserInfo({
-  name: userName,
-  job: userJob
+  nameSelector: ".header__name",
+  jobSelector: ".header__activity"
 });
 
 // Crear popup de imagen
@@ -72,38 +71,6 @@ export function cerrarFormulario() {
 openButtonEditProfile.addEventListener("click", abrirFormulario);
 closeButtonSave.addEventListener("click", cerrarFormulario);
 closeButtonX.addEventListener("click", cerrarFormulario);
-
-closeButtonSave.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-  const name = document.querySelector("#name").value;
-  const about = document.querySelector("#about").value;
-  const title = document.querySelector(".header__name");
-  const activity = document.querySelector(".header__activity");
-
-  title.textContent = name;
-  activity.textContent = about;
-  cerrarFormulario();
-});
-
-//editar nombre y sobre mi
-/* let formElement = document.querySelector("#form"); */
-
-function handleProfileFormSubmit(evt) {
-
-  evt.preventDefault();
-
-  const nameInput = document.querySelector("#name");
-  const jobInput = document.querySelector("#about");
-  const nameDisplay = document.querySelector(".header__name");
-  const jobDisplay = document.querySelector(".header__activity");
-
-  nameDisplay.textContent = nameInput.value;
-  jobDisplay.textContent = jobInput.value;
-}
-
-// Conecta el manipulador (handler) al formulario:
-// se observará el evento de entrega
-formElement.addEventListener('submit', handleProfileFormSubmit);
 
 // crea tarjetas
 const templateCard = document.querySelector(".template__card")
