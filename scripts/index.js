@@ -11,6 +11,7 @@ const openPopup = new Popup(".popup");
 openPopup.setEventListeners();
 
 const popupProfile = new PopupWithForm("#edit-popup", (data) => {
+  console.log(data);
   userProfile.setUserInfo(data.name, data.job)
 });
 popupProfile.setEventListeners();
