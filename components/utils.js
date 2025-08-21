@@ -25,7 +25,7 @@ export const initialCards = [
   }
 ];
 export const popup = document.querySelector(".popup");
-export const popupForm = document.querySelector(".popup__profile_edit");
+export const popupForm = document.querySelector("#edit-popup");
 export const userName = document.querySelector(".header__name");
 export const userJob = document.querySelector(".header__activity");
 const popupLeyend = document.querySelector(".popup__title_image");

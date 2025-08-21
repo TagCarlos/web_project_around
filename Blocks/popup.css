@@ -51,7 +51,7 @@
     width: 350px;
 }
 
-.popup__label__name{
+.popup__label-name{
 color: red;
 }
 
@@ -63,7 +63,7 @@ color: red;
     width: 350px;
 }
 
-.popup__label__about{
+.popup__label-about{
     color: red;
 }
 

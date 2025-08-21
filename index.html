@@ -34,18 +34,18 @@
     </section>
 </main>
 <footer class="footer">© 2025 Around The MX</footer>
-<div class="popup popup__profile popup__profile_edit" id="edit-popup"> 
+<div class="popup" id="edit-popup"> 
     <div class="popup__container">
     <form id="form" class="popup__form">
             <button class="popup__button popup__button_close" type="button">×</button>
             <h2 class="popup__title">Editar perfil</h2>
             <input type="text" id="name" name="name" placeholder="Nombre" class="popup__input popup__input_name" required minlength="2" maxlength="40">
-            <span class="popup__label__name" id="name-error"></span>
+            <span class="popup__label popup__label-name" id="name-error"></span>
         
         <div>
             
             <input type="text" id="about" name="about" placeholder="Acerca de mi" class="popup__input popup__input_about" required minlength="2" maxlength="200">
-            <span class="popup__label__about" id="about-error"></span>
+            <span class="popup__label popup__label-about" id="about-error"></span>
         </div>
         <button id="save" class="popup__button popup__button_save">Guardar</button>
     </form> 
@@ -58,9 +58,9 @@
     <form id="form-image" class="popup__form">
             <h2 class="popup__title">Nuevo lugar</h2>
             <input type="text" id="title" name="title" placeholder="Titulo" class="popup__input popup__input_name" required minlength="2" maxlength="20">
-            <span class="popup__label__name" id="title-error"></span>
+            <span class="popup__label-name" id="title-error"></span>
             <input type="url" id="image" name="url" placeholder="Enlace a la imagen" class="popup__input popup__input_about" required>
-            <span class="popup__label__about" id="image-error"></span>
+            <span class="popup__label-about" id="image-error"></span>
         
         <button id="saveImage" class="popup__button popup__button_save">Guardar</button>
     </form> 
@@ -91,6 +91,6 @@
     </div>
      
 </template>
-<script src="./scripts/index.js" type="module"></script>
+<script src="./pages/index.js" type="module"></script>
 </body>
 </html>

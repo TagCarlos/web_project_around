@@ -1,12 +1,12 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import Popup from "./Popup.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import Section from "./Section.js";
-import UserInfo from "./UserInfo.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import { popupForm, userName, userJob, initialCards, openButtonEditProfile, closeButtonSave, closeButtonX, formElement } from "../components/utils.js";
 
-import { popupForm, userName, userJob, initialCards, openButtonEditProfile, closeButtonSave, closeButtonX, formElement } from "./utils.js";
 const openPopup = new Popup(".popup");
 openPopup.setEventListeners();
 
@@ -108,33 +108,6 @@ formElement.addEventListener('submit', handleProfileFormSubmit);
 // crea tarjetas
 const templateCard = document.querySelector(".template__card")
 const cardsList = document.querySelector(".container");
-/* const initialCards = [
-  {
-    name: "Ciudad de México",
-    link: "https://images.unsplash.com/photo-1547686669-9a8cb1a22d91?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    name: "Guadalajara",
-    link: "https://images.unsplash.com/photo-1561788655-79bf50b6b174?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    name: "Monterrey",
-    link: "https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    name: "Yucatán",
-    link: "https://images.unsplash.com/photo-1518638150340-f706e86654de?q=80&w=867&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    name: "Chiapas",
-    link: "https://images.unsplash.com/photo-1597177549158-a92ded9f5436?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    name: "Chihuahua",
-    link: "https://images.unsplash.com/photo-1691560284809-15b2a260d881?q=80&w=892&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  }
-]; */
-
 
 export function closeModal() {
   popupImage.classList.remove("modalOverlay");
@@ -144,7 +117,7 @@ export function closeModal() {
 };
 
 
-let closeFormImage = document.querySelector(".popup__button_close_image"); //este se queda
+let closeFormImage = document.querySelector(".popup__button_close_image");
 const popupOpenImage = document.querySelector("#popupImage");
 function closeFormImages() {
   popupOpenImage.classList.remove("popup_opened");
