@@ -1,10 +1,11 @@
 export default class Card {
-    constructor(title, link, selector) {
+    constructor(title, link, selector, handleCardOpen) {
         this._title = title;
         this._imageLink = link;
         this._selector = selector;
         this.templateCard = document.querySelector(".template__card");
         this.cardsList = document.querySelector(".container");
+        this.handleCardOpen = handleCardOpen;
     }
 
     createCard() {
@@ -23,24 +24,10 @@ export default class Card {
 
     setEventListener() {
         this.cardImage.addEventListener("click", () => {
-            this.popupImage = document.querySelector("#popupImage");
-            this.popupImageElement = document.querySelector(".popup__image");
-            this.popupImageTitle = document.querySelector(".popup__title_image");
-            this.popupImageElement.src = this._imageLink;
-
-            this.popupImage.classList.add("popup_opened");
-            this.popupImage.classList.add("modalOverlay");
-            this.modalOverlay = document.querySelector(".modalOverlay");
-            this.modalOverlay.addEventListener("click", (event) => {
-                if (event.target === this.modalOverlay) {
-                    this.closeModal();
-                    this.popupImage.classList.remove("modalOverlay");
-                }
-            });
+            this.handleCardOpen(this._title, this._imageLink);
         });
 
         this.cardLikeButton.addEventListener("click", () => {
-            console.log(this.cardLikeButton);
             this.cardLikeButton.classList.toggle("container__heart_active");
         });
 
@@ -59,5 +46,7 @@ export default class Card {
 
         this.popupForm3.classList.remove("popup_opened");
     };
-
+    handleCardClick(){
+        createCard();
+    }
 }

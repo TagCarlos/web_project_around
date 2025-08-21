@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
   constructor(configuration) {
     this._configuration = configuration;
     this._formElement = document.querySelector(configuration.formSelector);
