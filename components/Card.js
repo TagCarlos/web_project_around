@@ -53,9 +53,7 @@ export default class Card {
         });
 
         this.deleteButton.addEventListener("click", () => {
-            console.log("borrando desde Card")
             this.deleteConfirmationButton(this.handleDeleteClick);
-            
         });
         
 

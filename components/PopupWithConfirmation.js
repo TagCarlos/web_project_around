@@ -33,8 +33,6 @@ export default class PopupWithConfirmation extends Popup{
             apiDeleteCard();
             this.close();
         })
-        /* console.log("borrando desde popupWithConfirmation")
-        action(); */
     } 
 
 }
