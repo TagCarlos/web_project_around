@@ -111,8 +111,9 @@ color: red;
     display: flex;
     justify-content: center;
     position: relative;
-    /* width: 90%; */
     background-color: white;
+    max-width: 75vw;
+    max-height: 75vh;
 }
 
 #popupContainerImage{
@@ -124,6 +125,27 @@ color: red;
     font-weight: bold;
 }
 
+.popup__confirmation{
+    width: 430px;
+    background-color: white;
+    margin: 15px;
+    color: black;
+    padding: 15px;
+}
+
+.popup__confirm-button{
+    width: 93%;
+    font-size: 30px;
+    color: white;
+    background-color: black;
+}
+
+.popup__input_avatar{
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
 
 @media screen and (max-width: 320px) {
     .popup__form{
